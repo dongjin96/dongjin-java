@@ -1,38 +1,32 @@
 package Day03;
 
-public class Day03_1111111 {
+import java.util.Scanner;
+
+public class Day03_1111111 {//cs
 	
-public static void main(String[] args) {
-	
-	///3번
-	int num = 0;
-	
-	
-	for (int i = 1; i <= 100; i++) {if(i%3==0) num  +=i;
+
+	public static void main(String[] args) {//s
 		
-	}System.out.println("3의 배수의 합"+ num);
-	
-	
-	
-	//5번
-	//.4x+5y=60
-	for (int x = 1; x <=10; x++) {
-		if((4*x)+(5*8)==60){Object y;
-		System.out.printf("(%d,%d)\n",x,y );
-	}
+		Scanner scanner = new Scanner(System.in);
+		String[][] 회원목록 = new String[100][2];
+		String[][] 방문록 = new String[100][2];
+		while (true) {
+			System.out.println("-----회원제 방문록--");
+			System.out.println("1.회원가입2.로그인 선택 : ");
+			int ch =scanner.nextInt();
+		
 			
+			
+			
+			
+			
+			
+			
+		}//we
+			
+	}//me
 	
 	
-	//6번
+	
 
-	for (int i = 1; i <=5 ; i++) {
-		for(int s =1; s<=i; s++) { System.out.println("*");
-		
-	}	System.out.println();}
-	
-	
-	
-	
-	}
-
-}
+}// ce
