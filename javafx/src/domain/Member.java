@@ -17,18 +17,18 @@ import javax.mail.internet.MimeMessage;
 import domain.Member;
 public class Member {
 
-	// 1. ÇÊµå
+	// 1. í•„ë“œ
 	private String m_id;
 	private String m_password;
 	private String m_name;
 	private String m_email;
 	private int m_point;
 
-	// 2. »ı¼ºÀÚ
+	// 2. ìƒì„±ì
 	public Member() {
 	}
 
-	// ¸ğµç ÇÊµå¸¦ ¹Ş´Â »ı¼ºÀÚ
+	// ëª¨ë“  í•„ë“œë¥¼ ë°›ëŠ” ìƒì„±ì
 	public Member(String m_id, String m_password, String m_name, String m_email, int m_point) {
 		super();
 		this.m_id = m_id;
@@ -38,7 +38,7 @@ public class Member {
 		this.m_point = m_point;
 	}
 
-	// È¸¿ø°¡ÀÔ½Ã »ç¿ëµÇ´Â »ı¼ºÀÚ [Æ÷ÀÎÆ®¸¦ Á¦¿Ü=>ÃÊ±â°ª]
+	// íšŒì›ê°€ì…ì‹œ ì‚¬ìš©ë˜ëŠ” ìƒì„±ì [í¬ì¸íŠ¸ë¥¼ ì œì™¸=>ì´ˆê¸°ê°’]
 
 	public Member(String m_id, String m_password, String m_name, String m_email) {
 		super();
@@ -49,7 +49,7 @@ public class Member {
 		this.m_point = 1000;
 	}
 
-	// 4. È¸¿ø ¼öÁ¤½Ã »ç¿ëµÇ´Â ¼öÁ¤ÀÚ
+	// 4. íšŒì› ìˆ˜ì •ì‹œ ì‚¬ìš©ë˜ëŠ” ìˆ˜ì •ì
 	public Member(String m_name, String m_email) {
 		super();
 		this.m_name = m_name;
@@ -57,7 +57,7 @@ public class Member {
 
 	}
 
-	// 3.¸Ş¼Òµå
+	// 3.ë©”ì†Œë“œ
 
 	public String getM_id() {
 		return m_id;
@@ -99,19 +99,19 @@ public class Member {
 		this.m_point = m_point;
 	}
 	
-	//Email Àü¼Û ¸Ş¼Òµå
+	//Email ì „ì†¡ ë©”ì†Œë“œ
 	public static void sendmail(String tomail, String msg, int type) {
-								//¹Ş´Â»ç¶÷//¸ŞÀÏ³»¿ë//¸ŞÀÏ Å¸ÀÔ
+								//ë°›ëŠ”ì‚¬ëŒ//ë©”ì¼ë‚´ìš©//ë©”ì¼ íƒ€ì…
 		
-		//º¸³»´Â »ç¶÷ Á¤º¸
+		//ë³´ë‚´ëŠ” ì‚¬ëŒ ì •ë³´
 		String fromemail ="dhehdwls44@naver.com";
-				String frompassword = "aa@65889023";
-		//¼³Á¤ ³×ÀÌ¹ö ,±¸±Û Ä«Ä«¿À È£½ºÆ® ¼³Á¤
+				String frompassword = "";
+		//ì„¤ì • ë„¤ì´ë²„ ,êµ¬ê¸€ ì¹´ì¹´ì˜¤ í˜¸ìŠ¤íŠ¸ ì„¤ì •
 			Properties properties = new  Properties();
 			properties.put("mail.smtp.host","smtp.naver.com");
 			properties.put("mail.smtp.port",587);
 			properties.put("mail.smtp.auth",true);
-			//ÀÎÁõ
+			//ì¸ì¦
 			Session session = Session.getDefaultInstance(properties, new Authenticator() {
 				@Override
 				protected PasswordAuthentication getPasswordAuthentication() {
@@ -119,15 +119,15 @@ public class Member {
 				}
 			
 			});
-			// ¸ŞÀÏ º¸³»±â
+			// ë©”ì¼ ë³´ë‚´ê¸°
 			try {
 				MimeMessage message = new MimeMessage(session);
 				message.setFrom( new InternetAddress(fromemail) );
 				message.addRecipient( Message.RecipientType.TO, new InternetAddress(tomail));
 				
-				if( type == 2 ) { // ºñ¹Ğ¹øÈ£ Ã£±â Å¸ÀÔ 
-					message.setSubject("Nike community È¸¿ø´ÔÀÇ ÆĞ½º¿öµå °á°ú ");
-					message.setText(" È¸¿ø´ÔÀÇ ºñ¹Ğ¹øÈ£ : "+ msg );
+				if( type == 2 ) { // ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° íƒ€ì… 
+					message.setSubject("Nike community íšŒì›ë‹˜ì˜ íŒ¨ìŠ¤ì›Œë“œ ê²°ê³¼ ");
+					message.setText(" íšŒì›ë‹˜ì˜ ë¹„ë°€ë²ˆí˜¸ : "+ msg );
 				}
 				Transport.send(message);
 			}
@@ -138,7 +138,7 @@ public class Member {
 				
 	}
 	
-	//È¸¿ø°¡ÀÔ½Ã »ç¿ëµÇ´Â »ı¼ºÀÚ
+	//íšŒì›ê°€ì…ì‹œ ì‚¬ìš©ë˜ëŠ” ìƒì„±ì
 	
 	
 	
