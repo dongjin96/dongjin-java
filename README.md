@@ -162,3 +162,77 @@ public static void main(String[] args) {
 				
 			}
 		} // 
+		------------------------------------------------------------------------------------------------------------------------------------------
+		
+		package 오동진정리함;
+
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class board {
+
+	
+	
+	public static void main(String[] args) {
+		
+		String[][]게시판=new String[100][5];
+		Scanner scanner = new Scanner(System.in);
+		
+		while(true) {
+			
+			System.out.println("================게시판=============");
+			System.out.printf("%5s\t%5s\t%4s\t%5s\t%5s\n","순번","제목","작성자","날짜","조회수");
+			for (int i = 0; i < 게시판.length; i++) {
+				if (게시판[i][0]!=null) {
+					System.out.printf("%3s\t%4s\t%4s\t%5s\t%5s\n",
+							i ,게시판[i][0],게시판[i][2],게시판[i][3],게시판[i][4]);///왜 게시판 [i][1]을없애버렸는지
+					
+				}
+			}
+			
+			System.out.println("1.글쓰기 2.작성글보기>>>>>>선택:");int ch = scanner.nextInt();
+			
+			if (ch==1) {
+				
+				System.out.println("===========글쓰기===========");
+				scanner.nextLine();
+				System.out.print(" 제목 : ");	String title = scanner.nextLine();
+				System.out.print(" 내용 : ");	String contents = scanner.nextLine();
+				System.out.print(" 작성자 : ");	String writer = scanner.nextLine();
+				
+				Date now = new Date();
+				SimpleDateFormat dateFormat = new SimpleDateFormat("mm-dd"); // M이랑m차이
+				String date = dateFormat.format(now);
+				
+				String count="1";
+				for (int i = 0; i < 게시판.length; i++) {
+					if (게시판[i][0]==null) {
+						게시판[i][0]=title;게시판[i][2]=writer;게시판[i][3]=date;게시판[i][4]=count;게시판[i][1]=contents;break;// 없으면 배열끝까지 글체워짐
+					}
+				}
+				
+				
+				
+			}
+
+			if (ch == 2) {
+				System.out.println("------------작성글보기------------");
+				System.out.print(" >>> 게시물 번호 선택 : ");
+				int ch2 = scanner.nextInt();
+
+				System.out.println("제목 :" + 게시판[ch2][0]);
+				System.out.println("작성자 :" + 게시판[ch2][1]);
+				System.out.println("작성자 :" + 게시판[ch2][2]);
+				System.out.println("날짜 :" + 게시판[ch2][3]);
+				System.out.println("조회수 :" + 게시판[ch2][4]);
+
+			}
+
+		}
+
+	}
+}
+
